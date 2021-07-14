@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Teste</title>
+
+	<script type="text/javascript" src="js/Jquery.js"></script>
+
+	<style type="text/css">
+
+	@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+SC&display=swap');
+
+		body{
+				background: black;
+				color: white;
+				font-family: 'Encode Sans SC', sans-serif;
+				text-align: center;
+				padding: 50px;
+			}
+
+			#result{
+				font-size: 20pt;
+			}
+
+	</style>
+</head>
+<body>
+    <span id="result"></span>
+    
+    <span id="pisca">|</span>
+
+    <p id="resultTwo"></p>
+
+
+<script type="text/javascript">
+
+	var txt = "Gêneses: Em breve mais informações.";
+	txt = txt + "";
+	
+
+$(document).ready(function() {
+
+	setInterval(function() {$("#pisca").html("|");}, 200);
+	setInterval(function() {$("#pisca").html("");}, 400);
+	digitar(txt);
+	setTimeout(function() {window.location.replace("http://www.google.com");}, 10000);
+	
+});
+
+
+var count = 0;
+var countTwo = 0;
+
+function digitar(text) {
+  setTimeout(function() { inserir(text[count], text) }, 100);
+}
+
+function inserir(letra) {
+	var item = $("#result").html();
+  $("#result").html(item + letra) ;
+  count++;
+  if(count < txt.length){
+    setTimeout(function() { inserir(txt[count]) }, 100);}
+    else{ adcElemento(); }
+}
+
+
+
+
+function adcElemento () {
+	$("#result").append('<br>');
+}
+    </script>
+</body>
+</html>
